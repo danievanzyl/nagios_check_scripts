@@ -21,32 +21,16 @@ STATUS[3]="UNKNOWN - "
 
 #Functions
 #
-function check_lock {
-	fuser -s $LOCK &> /dev/null
-	return $?
-}
-
-function check_proc {
-	local _proc
-	_proc=$(ps hU ${activemq_user} |awk '{print $1}')
-	if [ -z "$_proc" ];then
-		return 1	
-	else
-		echo $_proc
-		return 0
-	fi
-}
 
 function clean_up {
 	rm -f $TMP
 }
 
 function check_fcgi {
-#execute command
 	local _host=$1
 	local _port=$2
 	local _tmp=$3
-
+#execute command
 SCRIPT_NAME=/status \
 	SCRIPT_FILENAME=/status \
 	REQUEST_METHOD=GET \
@@ -56,14 +40,15 @@ SCRIPT_NAME=/status \
 }
 
 function main {
-	#trap on exit cleanup function
 	local _host=$1
 	local _port=$2
+	#trap on exit cleanup function
 	trap clean_up EXIT
 	#run fcgi command		
 	check_fcgi $_host $_port $TMP
 	if [[ "$?" -ge "1" ]]; then
 		echo "General Error - fcgi command not found, please install"
+		exit 255
 	fi
 
 	#check if file is empty
@@ -78,7 +63,7 @@ function main {
 		msg="Could not connect to $host:$port"
 		exit_status=2
 	fi
-	echo ${STATUS[$exit_status]} $msg
+	echo ${STATUS[$exit_status]} $msg "|" $perf
 	exit $exit_status
 }
 #
