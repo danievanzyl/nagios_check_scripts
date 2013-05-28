@@ -21,6 +21,11 @@ STATUS[3]="UNKNOWN - "
 
 #Functions
 #
+function display_usage {
+	echo -ne "\tUsage: \n"
+	echo -ne "\t\t$0 <ip> <port>\n"
+	echo -ne "\t\te.g. $0 127.0.0.1 9000\n"
+}
 
 function clean_up {
 	rm -f $TMP
@@ -30,8 +35,9 @@ function check_fcgi {
 	local _host=$1
 	local _port=$2
 	local _tmp=$3
-#execute command
-SCRIPT_NAME=/status \
+
+	#execute command
+	SCRIPT_NAME=/status \
 	SCRIPT_FILENAME=/status \
 	REQUEST_METHOD=GET \
 	QUERY_STRING= \
@@ -42,10 +48,13 @@ SCRIPT_NAME=/status \
 function main {
 	local _host=$1
 	local _port=$2
+	local perf=""
 	#trap on exit cleanup function
 	trap clean_up EXIT
+
 	#run fcgi command		
 	check_fcgi $_host $_port $TMP
+
 	if [[ "$?" -ge "1" ]]; then
 		echo "General Error - fcgi command not found, please install"
 		exit 255
@@ -69,7 +78,11 @@ function main {
 #
 #EOFunctions
 
-#run main function
-#
-
-main $1 $2
+# check arguments
+if [[ "$#" -lt "2" ]];then
+	display_usage
+	exit 1
+else
+	#then run main function
+	main $1 $2
+fi
