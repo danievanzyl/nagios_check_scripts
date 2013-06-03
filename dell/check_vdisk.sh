@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Danie van Zyl (https://github.com/pylonpower/nagios_check_scripts)
+# Author: Danie van Zyl (https://github.com/anythinglinux/nagios_check_scripts)
 # Purpose:
 # Use dell omreport to gather virtual disk statuses and present it to nagios. But be used with NRPE.
 #
