@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#	Author: Danie van Zyl (https://github.com/pylonpower/nagios_check_scripts)
+#	Author: Danie van Zyl (https://github.com/anythinglinux/nagios_check_scripts)
 # 	Requires: fcgi (yum install fcgi)
 # 	Purpose: Display /status and gather stats for a specified pool
 #
