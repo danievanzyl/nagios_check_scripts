@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############
-#  	Author: Danie van Zyl (https://github.com/pylonpower/nagios_check_scripts)
+#  	Author: Danie van Zyl (https://github.com/anythinglinux/nagios_check_scripts)
 #	Purpose:
 #
 #	First check if activemq process is running, if not then exit with CRITICAL status else
