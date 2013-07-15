@@ -41,7 +41,10 @@ if [[ $ID != "ID" ]];then
 fi
 done < $CACHED_OUTPUT
 
-if [[ ${ERROR_CODE[2]} == "true" && ${ERROR_CODE[1]} == "true" ]];then
+if [[ ${ERROR_CODE[2]} == "true" ]];then
+	exit_code=2
+	STATUS="CRITICAL"
+elif [[ ${ERROR_CODE[2]} == "true" && ${ERROR_CODE[1]} == "true" ]];then
 	exit_code=2
 	STATUS="CRITICAL"
 elif [[ ${ERROR_CODE[2]} == "false" && ${ERROR_CODE[1]} == "true" ]];then
