@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Author: Danie van Zyl (https://github.com/pylonpower/nagios_check_scripts)
+# Author: Danie van Zyl (https://github.com/anythinglinux/nagios_check_scripts)
 # Purpose:
 # Use XenAPI library to gather stats for nagios. Can be used with ssh/nrpe.
 # Use at own risk! Always test on test machines before going to production
