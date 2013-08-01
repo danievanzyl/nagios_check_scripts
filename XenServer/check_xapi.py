@@ -1,8 +1,10 @@
-#!/usr/bin/python
-# Author: Danie van Zyl (https://github.com/anythinglinux/nagios_check_scripts)
-# Purpose:
-# Use XenAPI library to gather stats for nagios. Can be used with ssh/nrpe.
-# Use at own risk! Always test on test machines before going to production
+#!/bin/bash
+#
+# author: danievanzyl (https://github.com/danievanzyl)
+# version: 1.0
+# license: http://www.apache.org/licenses/LICENSE-2.0.html
+# read changelog for most up-to-date changes
+##########################
 
 import XenAPI
 import parse_rrd

@@ -1,12 +1,10 @@
 #!/bin/bash
 #
-#	Author: Danie van Zyl (https://github.com/anythinglinux/nagios_check_scripts)
-# 	Requires: fcgi (yum install fcgi)
-# 	Purpose: Display /status and gather stats for a specified pool
-#
-#	More status can be gathered, this will change as warning / criticals 
-#	will be set on worker utilization in the future
-##############
+# author: danievanzyl (https://github.com/danievanzyl)
+# version: 1.0
+# license: http://www.apache.org/licenses/LICENSE-2.0.html
+# read changelog for most up-to-date changes
+##########################
 
 #Global Variables
 exit_status=-1

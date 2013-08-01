@@ -1,14 +1,10 @@
 #!/bin/bash
-##############
-#  	Author: Danie van Zyl (https://github.com/anythinglinux/nagios_check_scripts)
-#	Purpose:
 #
-#	First check if activemq process is running, if not then exit with CRITICAL status else
-#	check if the host is running a master or slave, then output the appropiate status message.
-# 	** Master/slave checking is done by checking if the current host has the file lock on the shared gluster partition.
-#	Make sure nrpe can use sudo, else fuser won't work properly!!!
-#
-##############
+# author: danievanzyl (https://github.com/danievanzyl)
+# version: 1.0
+# license: http://www.apache.org/licenses/LICENSE-2.0.html
+# read changelog for most up-to-date changes
+##########################
 
 #Global Variables
 exit_status=-1
