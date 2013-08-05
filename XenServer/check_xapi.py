@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/python
 #
 # author: danievanzyl (https://github.com/danievanzyl)
 # version: 1.0
